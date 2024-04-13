@@ -40,7 +40,7 @@ fn add_food_to_map(food: &Food, map: &mut Map) {
         return;
     }
     let position = food.position;
-    map[position[0]][position[1]] = "▣";
+    map[position[0]][position[1]] = "■";
 }
 
 /// 随机生成食物
@@ -82,7 +82,7 @@ fn add_snake_to_map(snake: &Snake, map: &mut Map) {
     let head = snake.head;
     map[head[0]][head[1]] = "●";
     for i in snake.body.iter() {
-        map[i[0]][i[1]] = "▣";
+        map[i[0]][i[1]] = "■";
     }
 }
 
@@ -96,21 +96,21 @@ fn move_snake(snake: &mut Snake, food: &mut Food, map: &mut Map, direction: Dire
             // 蛇头往前移动一格，以前的蛇头变成蛇身的位置
             snake.head[0] -= 1;
             eat = snake.head == food.position;
-            map[before_head[0]][before_head[1]] = "▣";
+            map[before_head[0]][before_head[1]] = "■";
             map[snake.head[0]][snake.head[1]] = "●";
         }
         Direction::DOWN => {
             // 蛇头往前移动一格，以前的蛇头变成蛇身的位置
             snake.head[0] += 1;
             eat = snake.head == food.position;
-            map[before_head[0]][before_head[1]] = "▣";
+            map[before_head[0]][before_head[1]] = "■";
             map[snake.head[0]][snake.head[1]] = "●";
         }
         Direction::LEFT => {
             // 蛇头往前移动一格，以前的蛇头变成蛇身的位置
             snake.head[1] -= 1;
             eat = snake.head == food.position;
-            map[before_head[0]][before_head[1]] = "▣";
+            map[before_head[0]][before_head[1]] = "■";
             map[snake.head[0]][snake.head[1]] = "●";
         }
         Direction::RIGHT => {
@@ -118,7 +118,7 @@ fn move_snake(snake: &mut Snake, food: &mut Food, map: &mut Map, direction: Dire
             snake.head[1] += 1;
             eat = snake.head == food.position;
             // 蛇头往前移动一格，以前的蛇头变成蛇身的位置
-            map[before_head[0]][before_head[1]] = "▣";
+            map[before_head[0]][before_head[1]] = "■";
             map[snake.head[0]][snake.head[1]] = "●";
         }
     }
